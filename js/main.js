@@ -3,15 +3,18 @@
 const countPush = document.querySelector('#count-push');
 const countNum  = document.querySelector('#count-num');
 
+let countData = [];
+
 countPush.addEventListener('click', () => {
   countUp();
-  saveCount();
+  saveLS();
 })
 
 function countUp() {
-  countNum.textContent++;
+  let countDatum = countNum.textContent++;
+  countData.push(countDatum);
 }
 
-function saveCount() {
-  localStorage.setItem('数字')
+function saveLS() {
+  localStorage.setItem('数字', JSON.stringify(countData))
 }
